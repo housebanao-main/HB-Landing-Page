@@ -6,9 +6,11 @@ import Intro from './components/Intro';
 import TableSection from './components/TableSection';
 import Service from './components/Service';
 import Innovation from './components/Innovation';
+import Header from './components/Header';
 function App() {
   return (
     <div className="App">
+      <Header />
       <Home />
       <Provide />
       <div className='mt-4'><Glimpse /></div>

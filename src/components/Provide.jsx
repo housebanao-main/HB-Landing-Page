@@ -5,8 +5,8 @@ import card3 from '../assets/card3.svg';
 import card4 from '../assets/card4.svg';
 
 const HomeInteriorCard = ({ logo, heading, description }) => (
-  <div className="bg-gray-100 p-6 rounded-lg shadow-lg text-center w-64">
-    <div className="bg-brown rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+  <div className="bg-gray-100 p-6 rounded-lg shadow-lg text-center w-full lg:w-64">
+    <div className="bg-[#A46254] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
       <img src={logo} alt="Logo" className="w-12 h-12" />
     </div>
     <h3 className="uppercase text-lg font-bold mb-2">{heading}</h3>

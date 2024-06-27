@@ -1,5 +1,4 @@
 import React from 'react';
-
 import glimpse01 from "../assets/glimpse01.png";
 import glimpse02 from "../assets/glimpse02.png";
 import glimpse03 from "../assets/glimpse03.png";
@@ -13,11 +12,11 @@ const GlimpseSection = () => {
   ];
 
   return (
-    <section className='flex flex-col ml-24 mr-24 gap-[20px] lg:max-w-[1290px] w-full mx-auto mb-[30px]'>
+    <section className='flex flex-col lg:ml-24 lg:mr-24 gap-[20px] lg:max-w-[1290px] w-full mx-auto mb-[30px]'>
       <CommonHeading className={"lg:text-start text-center"}>Get a glimpse of Housebanao homes</CommonHeading>
       <div className='flex items-center justify-between lg:flex-row flex-col gap-[26px] lg:gap-0 lg:px-0 px-[20px]'>
         {data.map((item, index) => (
-          <div className='relative flex items-center flex-col shadow-xl onhoverCards rounded-[10px] border border-#575757 w-[400px] h-[300px] overflow-hidden' key={index}>
+          <div className='relative flex items-center flex-col shadow-xl onhoverCards rounded-[10px] border border-[#575757] w-full lg:w-[400px] h-[300px] overflow-hidden' key={index}>
             <div className="relative w-full h-[300px]">
               <img src={item.icon} alt={item.altText} className="object-cover w-full h-full" />
             </div>
