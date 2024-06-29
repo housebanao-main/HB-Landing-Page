@@ -28,7 +28,7 @@ export const BookForm = () => {
         services: ""
       });
 
-      // navigate("/ThankYou");
+      navigate("/ThankYou");
 
    }
   const handleSubmit = async (e) => {
