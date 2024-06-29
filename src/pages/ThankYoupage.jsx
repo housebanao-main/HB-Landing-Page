@@ -1,11 +1,9 @@
-import { ThankYou } from "../components/ThankYou"
+import ThankYou from "../components/ThankYou";
 
-
-export const ThankYoupage=()=>{
-
+export const ThankYoupage = () => {
     return (
         <div>
-            <ThankYou></ThankYou>
+            <ThankYou />
         </div>
-    )
+    );
 }
