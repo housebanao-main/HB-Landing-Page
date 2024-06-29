@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg"; // Make sure the path to your logo is correct
 import axios from "axios"
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export const BookForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,8 +17,8 @@ export const BookForm = () => {
     setFormData({ ...formData, [name]: value });
     
   };
+  const navigate = useNavigate();
    async function BookNowClick(){
-    // const navigate = useNavigate();
      await axios.post("https://backend4.priyanshulakra0061.workers.dev/api/v1/user/landing" , formData);
 
       setFormData({
