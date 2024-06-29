@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg"; // Make sure the path to your logo is correct
-
+import axios from "axios"
+// import { useNavigate } from "react-router-dom";
 export const BookForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,8 +15,22 @@ export const BookForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    
   };
+   async function BookNowClick(){
+    // const navigate = useNavigate();
+     await axios.post("https://backend4.priyanshulakra0061.workers.dev/api/v1/user/landing" , formData);
 
+      setFormData({
+        name: "",
+        phoneNo: "",
+        location: "",
+        services: ""
+      });
+
+      // navigate("/ThankYou");
+
+   }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessMessage("");
@@ -47,7 +62,7 @@ export const BookForm = () => {
           <div className="text-[#A46254] text-center mb-4">{errorMessage}</div>
         )}
 
-        <form className="flex flex-col items-center gap-[10px] mt-[18px] w-full lg:w-[250px]" onSubmit={handleSubmit}>
+        <form  className="flex flex-col items-center gap-[10px] mt-[18px] w-full lg:w-[250px]" onSubmit={handleSubmit}>
           <div className="flex flex-col w-full">
             <input
               type="text"
@@ -90,7 +105,7 @@ export const BookForm = () => {
               <option value="Construction">Construction</option>
             </select>
           </div>
-          <button type="submit" className="bg-[#A46254] text-white py-2 px-4 rounded-full mt-4 w-full lg:w-[120px]">
+          <button onClick={BookNowClick} type="submit" className="bg-[#A46254] text-white py-2 px-4 rounded-full mt-4 w-full lg:w-[120px]">
             Book Now
           </button>
         </form>

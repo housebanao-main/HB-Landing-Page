@@ -1,26 +1,22 @@
-import React from 'react';
-import Home from './components/Home';
-import Provide from './components/Provide';
-import Glimpse from './components/Glimpse';
-import Intro from './components/Intro';
-import TableSection from './components/TableSection';
-import Service from './components/Service';
-import Innovation from './components/Innovation';
-import Header from './components/Header';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {  HomePage } from './pages/HomePage'
+import { ThankYoupage } from './pages/ThankYoupage'
+
+
 function App() {
+
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Provide />
-      <div className='mt-4'><Glimpse /></div>
-      
-      <Intro />
-      <TableSection />
-      <Service />
-      <Innovation />
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/Thankyou" element={<ThankYoupage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
+
