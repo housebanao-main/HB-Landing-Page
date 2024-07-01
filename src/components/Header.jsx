@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between p-4 bg-white text-black rounded-lg h-20 w-full sticky top-0 z-50 opacity-90 shadow-md">
       <div className="flex items-center">
-        <Link to="/">
+        <Link to="/Home">
           <img src={logo} alt="House Banao" height={57} width={150} className="w-[150px] lg:ml-16 ml-1" />
         </Link>
       </div>

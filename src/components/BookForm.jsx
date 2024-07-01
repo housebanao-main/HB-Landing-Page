@@ -14,38 +14,49 @@ export const BookForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "phoneNo" && !/^\d*$/.test(value)) {
+      setErrorMessage("Phone number should only contain digits.");
+      return;
+    }
     setFormData({ ...formData, [name]: value });
-    
+    setErrorMessage("");
+
   };
   const navigate = useNavigate();
-   async function BookNowClick(){
-     await axios.post("https://backend4.priyanshulakra0061.workers.dev/api/v1/user/landing" , formData);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    if (!formData.name || !formData.phoneNo || !formData.location || !formData.services) {
+      setErrorMessage("Please fill in all required fields.");
+      return;
+    }
+    if (!/^\d+$/.test(formData.phoneNo)) {
+      setErrorMessage("Please enter a valid phone number.");
+      return;
+    }
+
+    
+    setTimeout(() => {
+        navigate("/ThankYou");
+      }, 1000);
+    try {
+      setSuccessMessage("Appointment booked successfully!");
+    } catch (error) {
+      setErrorMessage("Error booking appointment: " + error.message);
+    }
+
+    await axios.post("https://backend4.priyanshulakra0061.workers.dev/api/v1/user/landing" , formData);
 
       setFormData({
         name: "",
         phoneNo: "",
         location: "",
         services: ""
-      });
-
-      navigate("/ThankYou");
-
-   }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSuccessMessage("");
-    setErrorMessage("");
-
-    if (!formData.name || !formData.phoneNo || !formData.location) {
-      setErrorMessage("Please fill in all required fields.");
-      return;
-    }
-
-    try {
-      setSuccessMessage("Appointment booked successfully!");
-    } catch (error) {
-      setErrorMessage("Error booking appointment: " + error.message);
-    }
+      }); 
   };
 
   return (
@@ -105,7 +116,7 @@ export const BookForm = () => {
               <option value="Construction">Construction</option>
             </select>
           </div>
-          <button onClick={BookNowClick} type="submit" className="bg-[#A46254] text-white py-2 px-4 rounded-full mt-4 w-full lg:w-[120px]">
+          <button  type="submit" className="bg-[#A46254] text-white py-2 px-4 rounded-full mt-4 w-full lg:w-[120px]">
             Book Now
           </button>
         </form>
