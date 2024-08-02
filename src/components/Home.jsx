@@ -13,12 +13,7 @@ const Home = () => {
             <h1 className="text-black-500 text-[30px] leading-[37px]">Crafting Dreams, Building Futures</h1>
             <h2 className="text-[#A46254] text-[40px] font-semibold leading-[40px]">Your Trusted Partner for Home <br /> Construction and Interior Design</h2>
             <p className="text-black text-[20px] font-medium leading-[24px] mt-2">Our team is dedicated to delivering outstanding construction and <br /> interior services in <span className="text-[#A46254]">Gurugram, Delhi, Noida, Faridabad, and Ghaziabad</span>.</p>
-            <button
-              onClick={() => alert("Book your consultation")}
-              className="rounded-full bg-[#A46254] text-white py-[12px] w-[320px] text-[20px] font-medium mt-4 mx-auto lg:mx-0"
-            >
-              Book your consultation
-            </button>
+           
           </div>
           <div className="hidden lg:flex lg:mr-24">
             <BookForm />
